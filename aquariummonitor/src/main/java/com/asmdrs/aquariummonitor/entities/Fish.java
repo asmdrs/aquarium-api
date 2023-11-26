@@ -19,7 +19,7 @@ public class Fish {
 
     private String type;
 
-    private int age;
+    private Integer age;
 
     private String name;
     @ManyToOne

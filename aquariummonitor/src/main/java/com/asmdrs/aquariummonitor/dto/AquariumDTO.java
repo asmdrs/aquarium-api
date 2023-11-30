@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class AquariumDTO {
     private Long id;
     private String name;
-    private int volume;
+    private Integer volume;
     private LocalDate lastReadingDate;
     private WaterType waterType;
 

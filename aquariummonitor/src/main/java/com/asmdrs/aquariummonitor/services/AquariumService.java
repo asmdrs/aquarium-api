@@ -24,5 +24,21 @@ public class AquariumService {
     public List<AquariumDTO> getAllAquariums(){
         List<Aquarium> aquariumList = aquariumRepository.findAll();
         return aquariumList.stream().map(e -> new AquariumDTO(e)).toList();
-            }
+    }
+
+    @Transactional
+    public AquariumDTO insert (AquariumDTO aquarium){
+        Aquarium entity = new Aquarium();
+        copyToEntity(aquarium,entity);
+        entity = aquariumRepository.save(entity);
+        return new AquariumDTO(entity);
+    }
+
+    private void copyToEntity(AquariumDTO aquarium, Aquarium entity){
+        entity.setName(aquarium.getName());
+        entity.setVolume(aquarium.getVolume());
+        entity.setLastReadingDate(aquarium.getLastReadingDate());
+        entity.setWaterType(aquarium.getWaterType());
+    }
+
 }

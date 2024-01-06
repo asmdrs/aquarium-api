@@ -17,17 +17,17 @@ public class Parameters {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int qtdPh;
+    private Integer qtdPh;
 
-    private int qtdNitrito;
+    private Integer qtdNitrito;
 
-    private int qtdNitrato;
+    private Integer qtdNitrato;
 
-    private int valorKh;
+    private Integer valorKh;
 
-    private float temperature;
+    private Double temperature;
 
     @ManyToOne
-    @JoinColumn(name = "aquarium_id") // Nome da coluna que representa o relacionamento
+    @JoinColumn(name = "aquarium_id")
     private Aquarium aquarium;
 }

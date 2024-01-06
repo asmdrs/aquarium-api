@@ -1,19 +1,18 @@
 package com.asmdrs.aquariummonitor.dto;
 
-import com.asmdrs.aquariummonitor.entities.*;
+import com.asmdrs.aquariummonitor.entities.Aquarium;
+import com.asmdrs.aquariummonitor.entities.WaterType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 public class AquariumDTO {
     private Long id;
     private String name;
-    private int volume;
-    private Date lastReadingDate;
+    private Integer volume;
+    private LocalDate lastReadingDate;
     private WaterType waterType;
 
     public AquariumDTO(Aquarium entity){

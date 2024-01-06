@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -34,7 +34,7 @@ public class Aquarium {
 
     private int volume;
 
-    private Date lastReadingDate;
+    private LocalDate lastReadingDate;
 
     private WaterType waterType;
 

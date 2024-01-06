@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,9 +53,10 @@ class PlantControllerTest {
     void shouldFindByAllSuccesfully(){
         Page<PlantDTO> mockPlantPage = new PageImpl<>(List.of(mockPlantDto));
         ResponseEntity< Page<PlantDTO>> responseEntity= new ResponseEntity<>(mockPlantPage, HttpStatus.OK);
-        when(plantsService.findAll(any(Pageable.class))).thenReturn(mockPlantPage);
+        Pageable pageable = PageRequest.of(0, 10);
+        when(plantsService.findAll(pageable)).thenReturn(mockPlantPage);
 
-        assertEquals(plantController.findAll(any(Pageable.class)), responseEntity);
+        assertEquals(plantController.findAll(pageable), responseEntity);
     }
 
     @Test
